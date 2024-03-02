@@ -3,12 +3,10 @@ interface Props {
   title: string;
   description: string;
   image: string;
-  repository: string;
   site: string;
   tecnologies: string[];
 }
-const { title, description, image, tecnologies, repository, site } =
-  Astro.props;
+const { title, description, image, tecnologies, site } = Astro.props;
 ---
 
 <div>

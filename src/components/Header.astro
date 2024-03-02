@@ -50,11 +50,15 @@ const menu = [
   const mobileMenu = document.getElementById("mobile-menu");
 
   menuIcon?.addEventListener("mouseenter", () => {
-    mobileMenu.style.display = "block";
+    if (mobileMenu) {
+      mobileMenu.style.display = "block";
+    }
   });
 
   menuIcon?.addEventListener("mouseleave", () => {
-    mobileMenu.style.display = "none";
+    if (mobileMenu) {
+      mobileMenu.style.display = "none";
+    }
   });
 </script>
 <style>
