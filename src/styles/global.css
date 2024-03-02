@@ -1,0 +1,27 @@
+
+:root{
+	--primary: #222831;
+	--secundary: #30475E;
+	--complement:#C1A57B;
+	--text-color:azure;
+	color: var(--text-color);
+	background: url("/code.svg");
+	font-family: sans-serif;
+	background-color: var(--primary);
+	scrollbar-width:  thin;
+}
+body{
+	
+	color: rgb(237, 227, 227);
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 20px;
+}
+a{
+	text-decoration: none;
+}
+
+  
+@media (max-width:800px)  {
+	
+}

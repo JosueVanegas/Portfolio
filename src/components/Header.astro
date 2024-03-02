@@ -1,0 +1,153 @@
+---
+const menu = [
+  {
+    name: "Sobre mi",
+    url: "#sobremi",
+  },
+  {
+    name: "Proyectos",
+    url: "#proyectos",
+  },
+  {
+    name: "Tecnologías",
+    url: "#tecnologias",
+  },
+];
+---
+
+<header class="header">
+  <div class="logo-container">
+    {`</>`}
+  </div>
+  <div class="menu-container">
+    <ul class="menu-container-list">
+      {
+        menu.map((item) => (
+          <li class="">
+            <a href={item.url}>{item.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="menu-icon" id="menu-icon">
+      <img src="/menu.svg" alt="" />
+      <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-menu-list">
+          {
+            menu.map((item) => (
+              <li class="">
+                <a href={item.url}>{item.name}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+<script>
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuIcon?.addEventListener("mouseenter", () => {
+    mobileMenu.style.display = "block";
+  });
+
+  menuIcon?.addEventListener("mouseleave", () => {
+    mobileMenu.style.display = "none";
+  });
+</script>
+<style>
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--secundary);
+    border-radius: 20px;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    box-shadow: -10px -10px 10px rgb(28, 28, 28);
+    user-select: none;
+  }
+  .menu-container-list {
+    display: flex;
+    gap: 10px;
+    font-size: 15px;
+  }
+
+  .menu-icon {
+    display: none;
+    position: relative;
+  }
+  .menu-icon img {
+    transition: transform 0.2s ease-in-out;
+  }
+  .menu-icon:hover img {
+    transform: rotate(180deg);
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    background-color: azure;
+    color: var(--primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    animation: roll 1s ease-in-out infinite;
+  }
+  li {
+    list-style: none;
+    border: 3px solid transparent;
+    transition: border 0.2s ease-in-out;
+  }
+  li:hover,
+  li:active {
+    border-bottom: 3px solid var(--text-color);
+  }
+  a {
+    text-decoration: none;
+    color: var(--text-color);
+  }
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+  }
+  .mobile-menu-list {
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: center;
+  }
+  @keyframes roll {
+    from {
+      transform: rotate(-360deg);
+    }
+    to {
+      transform: rotate(0);
+    }
+  }
+  @media (max-width: 780px) {
+    .menu-container-list {
+      display: none;
+    }
+    .menu-icon {
+      display: block;
+      cursor: pointer;
+    }
+    .mobile-menu {
+      position: absolute;
+      top: 90%;
+      right: 10px;
+      border-radius: 10px 0px 10px 10px;
+      z-index: 2;
+      background-color: var(--primary);
+      width: 200px;
+      height: 100px;
+    }
+  }
+</style>

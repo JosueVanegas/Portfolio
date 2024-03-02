@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/mainLayout.astro";
+import Introduction from "../components/Introduction.astro";
+import Proyects from "../components/Proyects.astro";
+---
+
+<Layout title="Josue Vanegas" description="">
+  <main>
+    <Introduction />
+    <Proyects />
+  </main>
+</Layout>
+<script>
+  const button = document.querySelector(".button_1");
+  button?.addEventListener("click", () => {
+    alert("hola");
+  });
+</script>
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+  }
+</style>

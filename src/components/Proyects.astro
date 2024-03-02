@@ -1,0 +1,78 @@
+---
+import ProyectCard from "../components/ProyectCard.astro";
+const proyects = [
+  {
+    title: "bordex360 (en producción)",
+    description:
+      "E-commers de bordadoras funcional el cual tiene integración con la pasarela de pago de PayPal, se implemento autenticación con google utilizando librerias como next-auth para la autenticación; para el almacenamiento de imagenes se utilizó el servicio de firebase-storage; tiene integrada un panel de administración y fue desplegada en vercel,en el backend se utilizo express,mongodb como base de datos, typescript,jwt en el frontend se utilizo librerias como tailwind css para facilitar el diseño aunque en algunas parte de la ui se utilizo css puro",
+    tecnologies: [
+      "nextjs14",
+      "mongodb",
+
+      "nodejs",
+      "typescript",
+      "javascript",
+      "html",
+      "css",
+      "react",
+      "tailwind",
+    ],
+    image: "/bordex360.svg",
+    repository: "private",
+    site: "https://www.bordex360.com",
+  },
+  {
+    title: "Textiltec (en producción)",
+    description:
+      "Landing page con blog personal destinada a mostrar los servicios que ofrece el negocio textiltec con ubicación en Madrid España.El proyecto cuenta con una base de datos en mongodb usando el servidor que integra el framework de nextjs para crear el blog del negocio que solicitó el cliente y el apartado de diseño se utilizó tailwind css.",
+    tecnologies: [
+      "react",
+      "javascript",
+      "html",
+      "css",
+      "tailwind",
+      "nextjs14",
+      "mongodb",
+    ],
+    image: "/textiltec.svg",
+    repository: "private",
+    site: "https://www.textiltec.es",
+  },
+  {
+    title: "Portafolio",
+    description:
+      "como simple mención este portafolio se realizo utilizando Astro sin ninguna libreria externa solo html,css y javascript.",
+    tecnologies: ["astro", "javascript", "html", "css"],
+    image: "",
+    repository: "private",
+    site: "/",
+  },
+];
+---
+
+<section id="proyectos">
+  <h1 class="title">Mis proyectos</h1>
+  {
+    proyects.map((item) => (
+      <ProyectCard
+        title={item.title}
+        description={item.description}
+        image={item.image}
+        tecnologies={item.tecnologies}
+        site={item.site}
+        repository=""
+      />
+    ))
+  }
+</section>
+<style>
+  section {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+  }
+  .title {
+    font-size: 50px;
+  }
+</style>

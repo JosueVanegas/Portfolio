@@ -1,0 +1,110 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  repository: string;
+  site: string;
+  tecnologies: string[];
+}
+const { title, description, image, tecnologies, repository, site } =
+  Astro.props;
+---
+
+<div>
+  <div class="container">
+    <div class="image-container">
+      <img class="site-image" src={image} alt="" />
+    </div>
+    <div class="content-container">
+      <div class="title-site">
+        <h1>{title}</h1>
+        <a class="site" href={site} target="_blank"
+          ><img src="/link.svg" alt="" /></a
+        >
+      </div>
+      <p>{description}</p>
+
+      <div class="tecnologies-container">
+        {
+          tecnologies.map((item) => (
+            <div class="tecnology-item" title={item}>
+              <img src={`/tecno/${item.toLowerCase()}.svg`} alt={item} />
+              <p>{item}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .container {
+    display: flex;
+    margin-bottom: 40px;
+    gap: 10px;
+  }
+  .title-site {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .site-image {
+    cursor: zoom-in;
+    transition: transform 0.3s ease-in-out;
+  }
+  .site-image:hover {
+    z-index: 10;
+    transform: scale(1.5);
+  }
+  .site {
+    display: flex;
+    align-items: center;
+    color: var(--primary);
+    background-color: var(--text-color);
+    padding-inline: 20px;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+  }
+  .site:hover {
+    transform: scale(1.4);
+  }
+  .image-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .content-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .tecnologies-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .tecnology-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    width: 100px;
+    height: 20px;
+    color: var(--text-color);
+    border-radius: 10px;
+    background-color: var(--secundary);
+    cursor: pointer;
+    transition: transform 0.1s ease-in;
+  }
+  .tecnology-item:hover {
+    transform: scale(0.9);
+  }
+  @media (max-width: 1200px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+</style>
